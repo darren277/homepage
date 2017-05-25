@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/bootstrap.css')}}">
+    <script src="{{url_for('.static', filename='js/bootstrap.min.js')}}"></script>
+
+    <script src="{{url_for('.static', filename='js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body>
 <!--
@@ -19,6 +24,9 @@ database.child("users").on('value', function(snapshot) {
 -->
 
     <h1>Home Page</h1>
+
+    <a href="/zerotoapp">Zero to App</a>
+    <br/>
 
     <button onclick="getLocation()">Get Location</button>
     <div id="demo"></div>
