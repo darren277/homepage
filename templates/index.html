@@ -5,6 +5,37 @@
     <title>Title</title>
 </head>
 <body>
+<!--
+<script>
+var database = firebase.database();
+// write
+database.ref('users/' + userId).set(user);
+
+// read / listen
+database.child("users").on('value', function(snapshot) {
+  // ...
+});
+</script>
+-->
+
     <h1>Home Page</h1>
+
+    <button onclick="getLocation()">Get Location</button>
+    <div id="demo"></div>
+
+    <script>
+    var x = document.getElementById("demo");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
 </body>
 </html>
