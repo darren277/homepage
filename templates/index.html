@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="{{url_for('.static', filename='css/bootstrap.css')}}">
+    <script src="{{url_for('.static', filename='js/jquery.js')}}"></script>
+
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/glyph.css')}}">
     <script src="{{url_for('.static', filename='js/bootstrap.min.js')}}"></script>
 
-    <script src="{{url_for('.static', filename='js/jquery-3.2.1.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/font-awesome.min.css')}}">
+
 </head>
 <body>
 <!--
@@ -25,7 +29,13 @@ database.child("users").on('value', function(snapshot) {
 
     <h1>Home Page</h1>
 
-    <a href="/zerotoapp">Zero to App</a>
+    <a href="stickynotes">Sticky Notes / Kanban</a>
+    <br/>
+
+    <a href="kanban">Cards</a>
+    <br/>
+
+    <a href="zerotoapp">Zero to App</a>
     <br/>
 
     <button onclick="getLocation()">Get Location</button>
@@ -45,5 +55,298 @@ database.child("users").on('value', function(snapshot) {
         "<br>Longitude: " + position.coords.longitude;
     }
     </script>
+
+<br/>
+<br/>
+<br/>
+
+    <h3><span class="glyphicon glyphicon-music"></span>Glyphicons</h3>
+    <p>
+        <span class="glyphicon glyphicon-eye-open" style="font-size:48px; color: blue;"></span>700 Views<br/>
+        <span class="glyphicon glyphicon-thumbs-up" style="font-size:48px; color: green;"></span>300 Likes<br/>
+        <span class="glyphicon glyphicon-thumbs-down" style="font-size:48px; color: red;"></span>50 Dislikes<br/>
+    </p>
+
+    <button class=".btn-success"><span class="glyphicon glyphicon-ok" style="font-size: 30px;"></span></button><br/>
+    <button class=".btn-danger"><span class="glyphicon glyphicon-remove" style="font-size: 30px;"></span></button><br/>
+
+    <button class=".btn-primary"><span class="glyphicon glyphicon-magic"></span>Wizard</button><br/>
+
+    <span class="glyphicon glyphicon-dashboard" style="font-size: 30px;"></span><br/>
+    <span class="glyphicon glyphicon-list-alt" style="font-size: 30px;"></span><br/>
+
+    <span class="glyphicon glyphicon-mouse-double-click"></span><br/>
+    <span class="glyphicon glyphicon-mouse-left-click"></span><br/>
+    <span class="glyphicon glyphicon-mouse-right-click"></span><br/>
+    <span class="glyphicon glyphicon-pictures"></span><br/>
+    <span class="glyphicon glyphicon-file-cloud-download"></span><br/>
+    <span class="glyphicon glyphicon-file-cloud-download"></span><br/>
+    <span class="glyphicon glyphicon-piano"></span><br/>
+    <span class="glyphicon glyphicon-calculator"></span><br/>
+    <span class="glyphicon glyphicon-microphone"></span><br/>
+    <span class="glyphicon glyphicon-comments"></span><br/>
+    <span class="glyphicon glyphicon-qrcode"></span><br/>
+    <span class="glyphicon glyphicon-settings"></span><br/>
+    <span class="glyphicon glyphicon-share-alt"></span><br/>
+    <span class="glyphicon glyphicon-stats"></span><br/>
+    <span class="glyphicon glyphicon-charts"></span><br/>
+    <span class="glyphicon glyphicon-pencil"></span><br/>
+    <span class="glyphicon glyphicon-star-empty"></span><br/>
+    <span class="glyphicon glyphicon-star"></span><br/>
+    <span class="glyphicon glyphicon-floppy-disk"></span><br/>
+    <span class="glyphicon glyphicon-option-horizontal"></span><br/>
+
+    <ul>
+        <li><span class="glyphicon glyphicon-home"></span></li>
+        <li><span class="glyphicon glyphicon-music"></span></li>
+        <li><span class="glyphicon glyphicon-search"></span></li>
+        <li><span class="glyphicon glyphicon-heart"></span></li>
+        <li><span class="glyphicon glyphicon-film"></span></li>
+        <li><span class="glyphicon glyphicon-envelope"></span></li>
+        <li><span class="glyphicon glyphicon-camera"></span></li>
+        <li><span class="glyphicon glyphicon-glass"></span></li>
+        <li><span class="glyphicon glyphicon-bin"></span></li>
+        <li><span class="glyphicon glyphicon-circle-arrow-left"></span></li>
+        <li><span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+        <li><span class="glyphicon glyphicon-circle-arrow-top"></span></li>
+        <li><span class="glyphicon glyphicon-circle-arrow-down"></span></li>
+        <li><span class="glyphicon glyphicon-arrow-left"></span></li>
+        <li><span class="glyphicon glyphicon-arrow-right"></span></li>
+        <li><span class="glyphicon glyphicon-arrow-top"></span></li>
+        <li><span class="glyphicon glyphicon-arrow-down"></span></li>
+        <li><span class="glyphicon glyphicon-chat"></span></li>
+        <li><span class="glyphicon glyphicon-usd"></span></li>
+        <li><span class="glyphicon glyphicon-folder-open"></span></li>
+        <li><span class="glyphicon glyphicon-picture"></span></li>
+        <li><span class="glyphicon glyphicon-adjust-alt"></span></li>
+        <li><span class="glyphicon glyphicon-cogwheel"></span></li>
+        <li><span class="glyphicon glyphicon-playlist"></span></li>
+        <li><span class="glyphicon glyphicon-check"></span></li>
+        <li><span class="glyphicon glyphicon-unchecked"></span></li>
+        <li><span class="glyphicon glyphicon-edit"></span></li>
+        <li><span class="glyphicon glyphicon-inbox-in"></span></li>
+        <li><span class="glyphicon glyphicon-inbox-out"></span></li>
+        <li><span class="glyphicon glyphicon-inbox"></span></li>
+        <li><span class="glyphicon glyphicon-inbox-plus"></span></li>
+        <li><span class="glyphicon glyphicon-inbox-minus"></span></li>
+        <li><span class="glyphicon glyphicon-clock"></span></li>
+        <li><span class="glyphicon glyphicon-shopping-cart"></span></li>
+        <li><span class="glyphicon glyphicon-cart-in"></span></li>
+        <li><span class="glyphicon glyphicon-cart-out"></span></li>
+        <li><span class="glyphicon glyphicon-question-sign"></span></li>
+        <li><span class="glyphicon glyphicon-download"></span></li>
+        <li><span class="glyphicon glyphicon-upload"></span></li>
+        <li><span class="glyphicon glyphicon-dice-1"></span></li>
+        <li><span class="glyphicon glyphicon-dice-2"></span></li>
+        <li><span class="glyphicon glyphicon-dice-3"></span></li>
+        <li><span class="glyphicon glyphicon-dice-4"></span></li>
+        <li><span class="glyphicon glyphicon-dice-5"></span></li>
+        <li><span class="glyphicon glyphicon-dice-6"></span></li>
+        <li><span class="glyphicon glyphicon-mic-mute"></span></li>
+        <li><span class="glyphicon glyphicon-stop-sign"></span></li>
+        <li><span class="glyphicon glyphicon-tv"></span></li>
+        <li><span class="glyphicon glyphicon-eye-plus"></span></li>
+        <li><span class="glyphicon glyphicon-eye-minus"></span></li>
+        <li><span class="glyphicon glyphicon-duplicate"></span></li>
+        <li><span class="glyphicon glyphicon-database"></span></li>
+        <li><span class="glyphicon glyphicon-database-search"></span></li>
+        <li><span class="glyphicon glyphicon-database-lock"></span></li>
+        <li><span class="glyphicon glyphicon-database-plus"></span></li>
+        <li><span class="glyphicon glyphicon-database-minus"></span></li>
+        <li><span class="glyphicon glyphicon-database-ban"></span></li>
+        <li><span class="glyphicon glyphicon-fit-frame-to-image"></span></li>
+        <li><span class="glyphicon glyphicon-fit-image-to-frame"></span></li>
+        <li><span class="glyphicon glyphicon-disk-save"></span></li>
+        <li><span class="glyphicon glyphicon-disk-open"></span></li>
+        <li><span class="glyphicon glyphicon-sort-by-alphabet"></span></li>
+        <li><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></li>
+        <li><span class="glyphicon glyphicon-sort-by-order"></span></li>
+        <li><span class="glyphicon glyphicon-sort-by-order-alt"></span></li>
+        <li><span class="glyphicon glyphicon-sort-by-attributes"></span></li>
+        <li><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></li>
+        <li><span class="glyphicon glyphicon-restart"></span></li>
+        <li><span class="glyphicon glyphicon-log-in"></span></li>
+        <li><span class="glyphicon glyphicon-log-out"></span></li>
+        <li><span class="glyphicon glyphicon-exit"></span></li>
+        <li><span class="glyphicon glyphicon-new-window"></span></li>
+        <li><span class="glyphicon glyphicon-new-window-alt"></span></li>
+        <li><span class="glyphicon glyphicon-certificate"></span></li>
+        <li><span class="glyphicon glyphicon-settings"></span></li>
+        <li><span class="glyphicon glyphicon-bug"></span></li>
+        <li><span class="glyphicon glyphicon-blog"></span></li>
+        <li><span class="glyphicon glyphicon-calculator"></span></li>
+        <li><span class="glyphicon glyphicon-record"></span></li>
+        <li><span class="glyphicon glyphicon-step-backward"></span></li>
+        <li><span class="glyphicon glyphicon-fast-backward"></span></li>
+        <li><span class="glyphicon glyphicon-rewind"></span></li>
+        <li><span class="glyphicon glyphicon-play"></span></li>
+        <li><span class="glyphicon glyphicon-pause"></span></li>
+        <li><span class="glyphicon glyphicon-stop"></span></li>
+        <li><span class="glyphicon glyphicon-forward"></span></li>
+        <li><span class="glyphicon glyphicon-fast-forward"></span></li>
+        <li><span class="glyphicon glyphicon-step-forward"></span></li>
+        <li><span class="glyphicon glyphicon-eject"></span></li>
+        <li><span class="glyphicon glyphicon-mute"></span></li>
+        <li><span class="glyphicon glyphicon-volume-down"></span></li>
+        <li><span class="glyphicon glyphicon-volume-up"></span></li>
+        <li><span class="glyphicon glyphicon-download-alt"></span></li>
+        <li><span class="glyphicon glyphicon-screenshot"></span></li>
+        <li><span class="glyphicon glyphicon-fullscreen"></span></li>
+        <li><span class="glyphicon glyphicon-show-thumbnails"></span></li>
+        <li><span class="glyphicon glyphicon-show-thumbnails-with-lines"></span></li>
+        <li><span class="glyphicon glyphicon-show-lines"></span></li>
+        <li><span class="glyphicon glyphicon-book-open"></span></li>
+        <li><span class="glyphicon glyphicon-pen"></span></li>
+        <li><span class="glyphicon glyphicon-note-empty"></span></li>
+        <li><span class="glyphicon glyphicon-note-empty"></span></li>
+        <li><span class="glyphicon glyphicon-table"></span></li>
+        <li><span class="glyphicon glyphicon-log-book"></span></li>
+        <li><span class="glyphicon glyphicon-address-book"></span></li>
+        <li><span class="glyphicon glyphicon-book"></span></li>
+    </ul>
+
+
+    <h2>Font Awesome</h2>
+
+<a href="http://fontawesome.io/icons/">Click here for reference page listing all icons.</a>
+
+<i class="fa fa-camera-retro"></i> fa-camera-retro
+<i class="fa fa-camera-retro fa-lg"></i> fa-lg
+<i class="fa fa-camera-retro fa-2x"></i> fa-2x
+<i class="fa fa-camera-retro fa-3x"></i> fa-3x
+<i class="fa fa-camera-retro fa-4x"></i> fa-4x
+<i class="fa fa-camera-retro fa-5x"></i> fa-5x
+<div class="list-group">
+  <a class="list-group-item" href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+  <a class="list-group-item" href="#"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Library</a>
+  <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Applications</a>
+  <a class="list-group-item" href="#"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Settings</a>
+</div>
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-check-square"></i>List icons</li>
+  <li><i class="fa-li fa fa-check-square"></i>can be used</li>
+  <li><i class="fa-li fa fa-spinner fa-spin"></i>as bullets</li>
+  <li><i class="fa-li fa fa-square"></i>in lists</li>
+</ul>
+
+<i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
+...tomorrow we will run faster, stretch out our arms farther...
+And then one fine morning&mdash; So we beat on, boats against the
+current, borne back ceaselessly into the past.
+
+<h4>Animated Icons</h4>
+<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<h4>Rotated & Flipped</h4>
+<i class="fa fa-shield"></i> normal<br>
+<i class="fa fa-shield fa-rotate-90"></i> fa-rotate-90<br>
+<i class="fa fa-shield fa-rotate-180"></i> fa-rotate-180<br>
+<i class="fa fa-shield fa-rotate-270"></i> fa-rotate-270<br>
+<i class="fa fa-shield fa-flip-horizontal"></i> fa-flip-horizontal<br>
+<i class="fa fa-shield fa-flip-vertical"></i> fa-flip-vertical
+
+<h4>Stacked Icons</h4>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square-o fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x"></i>
+</span>
+fa-twitter on fa-square-o<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+</span>
+fa-flag on fa-circle<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+</span>
+fa-terminal on fa-square<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-camera fa-stack-1x"></i>
+  <i class="fa fa-ban fa-stack-2x text-danger"></i>
+</span>
+fa-ban on fa-camera
+
+<h4>Bootstrap Examples</h4>
+<a class="btn btn-danger" href="#">
+  <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+<a class="btn btn-default btn-sm" href="#">
+  <i class="fa fa-cog"></i> Settings</a>
+
+<a class="btn btn-lg btn-success" href="#">
+  <i class="fa fa-flag fa-2x pull-left"></i> Font Awesome<br>Version 4.7.0</a>
+
+<div class="btn-group">
+  <a class="btn btn-default" href="#">
+    <i class="fa fa-align-left" title="Align Left"></i>
+  </a>
+  <a class="btn btn-default" href="#">
+    <i class="fa fa-align-center" title="Align Center"></i>
+  </a>
+  <a class="btn btn-default" href="#">
+    <i class="fa fa-align-right" title="Align Right"></i>
+  </a>
+  <a class="btn btn-default" href="#">
+    <i class="fa fa-align-justify" title="Align Justify"></i>
+  </a>
+</div>
+
+<div class="input-group margin-bottom-sm">
+  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+  <input class="form-control" type="text" placeholder="Email address">
+</div>
+<div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+  <input class="form-control" type="password" placeholder="Password">
+</div>
+
+<div class="btn-group open">
+  <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="fa fa-unlock"></i> Make admin</a></li>
+  </ul>
+</div>
+
+
+<h4>CSS Styling</h4>
+<style>
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before {
+    content: "\2605";
+    position: absolute;
+}
+</style>
+<div class="rating">
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
+
 </body>
 </html>

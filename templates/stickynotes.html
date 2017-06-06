@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>TITLE</title>
+
+<style>
+
+.sticky {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100px;
+	width: 100px;
+	background-color: lightyellow;
+}
+.sticky p {
+	text-align: center;
+	font-size: 12px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.draggable:hover {
+	/* cursor: move; */
+}
+
+#kanban {
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button onclick="newNote()">Add a Note</button>
+
+<button onclick="saveCoordinates()">Save Coordinates</button>
+
+<br/>
+
+<button onclick="kanban()">Kanban</button>
+<br/>
+
+<canvas id="kanban" width="800" height="600">
+</canvas>
+<br/>
+
+<button onclick="nokanban()">No Kanban</button>
+<br/>
+
+<script>
+var idCounter = 0;
+var colorCounter = 0;
+
+var f = function() {
+	function Draggable(element,dragStart,dragDrop) {
+		this.element = element;
+		this.dragStart = dragStart;
+		this.dragDrop = dragDrop;
+
+		this.element.classList.add('draggable');
+		var self = this;
+
+		var move = function(event){
+			// Don't bubble this event - mousedown.
+			event.stopPropagation();
+
+			// Prevent any default action.
+			// event.preventDefault();
+
+			var originalLeft = parseInt(window.getComputedStyle(this).left);
+			var originalTop = parseInt(window.getComputedStyle(this).top);
+
+			var mouseDownX = event.clientX;
+			var mouseDownY = event.clientY;
+
+			function dragMe(event) {
+				self.element.style.left = originalLeft + event.clientX - mouseDownX + "px";
+				self.element.style.top = originalTop + event.clientY - mouseDownY + "px";
+				event.stopPropagation();
+			}
+
+			function dropMe(event){
+				document.removeEventListener('mousemove',dragMe,true);
+				document.removeEventListener('mouseup',dropMe,true);
+				event.stopPropagation();
+			}
+
+			document.addEventListener('mousemove',dragMe,true);
+			document.addEventListener('mouseup',dropMe,true);
+
+			console.log(originalLeft + ", " + originalTop);
+
+			console.log(event.type);
+			console.log(event.currentTarget);
+		};
+
+		this.element.addEventListener('mousedown',move,false);
+	};
+
+	var stickyElement = document.querySelectorAll(".sticky");
+	for (i = 0; i < stickyElement.length; i++) {
+		var dragObject = new Draggable(stickyElement[i]);
+	}
+};
+
+window.addEventListener('load',f,false);
+
+
+function changeColor(event,x) {
+	// event.preventDefault();
+
+	console.log("this is a...");
+	console.log(x);
+
+	switch(colorCounter) {
+		case 0:
+			var color = "lightyellow";
+			colorCounter++;
+			break;
+		case 1:
+			var color = "lightgreen";
+			colorCounter++;
+			break;
+		case 2:
+			var color = "#ff9999";
+			colorCounter++;
+			break;
+		case 3:
+			var color = "lightblue";
+			colorCounter++;
+			break;
+		case 4:
+			var color = "#ffbf80";
+			colorCounter++;
+			break;
+		case 5:
+			var color = "#d1b3ff";
+			colorCounter = 0;
+			break;
+		default:
+			var color = "lightyellow";
+	}
+
+	x.style.backgroundColor = color;
+};
+
+
+function newNote() {
+	idCounter++;
+	var noteID = idCounter;
+	var note = document.createElement("div");
+	note.setAttribute("id",noteID);
+	note.setAttribute("class","sticky draggable");
+	note.setAttribute('ondblclick','changeColor(event,this)');
+
+	var par = document.createElement("p");
+
+	var textnode = document.createTextNode("EDIT ME");
+	par.appendChild(textnode);
+	note.appendChild(par);
+
+	par.contentEditable = "true";
+
+
+	console.log("sup");
+
+	var prevNote = document.getElementById(noteID-1);
+	document.body.insertBefore(note,prevNote);
+
+	f();
+}
+
+function saveCoordinates() {
+	var t = document.querySelectorAll(".sticky");
+
+	console.log(t.length);
+
+	for (i = 0; i < t.length; i++) {
+		var id = t[i].getAttribute("id");
+		var x = parseInt(window.getComputedStyle(t[i]).left);
+		var y = parseInt(window.getComputedStyle(t[i]).top);
+		var content = t[i].getElementsByTagName('p')[0].innerHTML;
+		console.log("Note ID #" + id + ": " + x + ", " + y);
+		console.log("Content: " + content);
+	}
+}
+
+
+function kanban() {
+	var c = document.getElementById("kanban");
+	var ctx = c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(0,600);
+	ctx.stroke();
+	ctx.moveTo(200,0);
+	ctx.lineTo(200,600);
+	ctx.stroke();
+	ctx.moveTo(500,0);
+	ctx.lineTo(500,600);
+	ctx.stroke();
+	ctx.moveTo(800,0);
+	ctx.lineTo(800,600);
+	ctx.stroke();
+	ctx.font = "30px Arial";
+	ctx.fillText("Todo",50,50);
+	ctx.font = "30px Arial";
+	ctx.fillText("Doing",300,50);
+	ctx.font = "30px Arial";
+	ctx.fillText("Done",600,50);
+}
+
+function nokanban() {
+	var c = document.getElementById("kanban");
+	var ctx = c.getContext("2d");
+	ctx.clearRect(0, 0, c.width, c.height);
+}
+</script>
+
+</body>
+
+</html>

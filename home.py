@@ -13,5 +13,13 @@ def index():
 def zerotoapp():
     return render_template("zerotoapp.html")
 
+@app.route('/stickynotes')
+def stickynotes():
+    return render_template("stickynotes.html")
+
+@app.route('/kanban')
+def kanban():
+    return render_template("kanban.html")
+
 if __name__ == "__main__":
     app.run()
