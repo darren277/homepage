@@ -17,6 +17,8 @@
         url("/static/img/teacup.jpg");
     background-size: cover;
     position: relative;
+
+
 }
 
 .card-category {
@@ -35,4 +37,231 @@
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+
+/* Flexbox */
+@media(min-width: 468px) {
+
+.container-1 {
+    display: flex;
+    /*
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;
+    */
+    flex-direction: column;
+}
+
+.container-2 {
+    display: flex;
+    /*
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: center;
+
+    justify-content: space-around;
+    */
+    justify-content: space-between;
+}
+}
+
+.container-3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container-1 div, .container-2 div, .container-3 div {
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+.box-1{
+    flex: 2;
+    order: 2;
+}
+
+.box-2{
+    flex: 1;
+    order: 1;
+}
+
+.box-3{
+    flex: 1;
+    order: 3;
+}
+
+.container-2-box {
+    /* width: 30%; */
+    flex-basis: 27%;
+}
+
+.container-3-box {
+    flex-basis: 12%;
+}
+
+
+/* Flex Form */
+
+.form-container {
+    width: 500px;
+    height: 120px;
+    margin:auto;
+    border: 1px #ccc solid;
+    padding: 5px;
+}
+
+.form-row {
+    padding: 10px 0;
+    display: flex;
+}
+
+.form-row label {
+    padding-right: 10px;
+    flex: 1; /* Remove this line if you want the input boxes to stretch to fit. */
+    margin-left: auto;
+}
+
+.form-row input {
+    flex: 1;
+}
+
+
+.three-column-layout {
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 40px auto 0 auto;
+    line-height: 1.65;
+    padding: 20px 50px;
+    display: flex;
+}
+
+.main-column {
+    flex: 3;
+    order: 2;
+}
+
+.sidebar-one {
+    flex: 1;
+    order: 1;
+}
+
+.sidebar-two {
+    flex: 1;
+    order: 3;
+}
+
+
+/*
+This media query establishes a 'mobile-first' design.
+This way, the DEFAULT view for this container will be STACKED COLUMNS.
+When device screen width is greater than 900px, it shows the Flexbox VERTICAL COLUMNS.
+*/
+@media (min-width: 900px) {
+    .call-outs-container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.call-outs-container {
+    max-width: 1300px;
+    margin: 40px auto 0 auto;
+}
+
+.call-out {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    flex-basis: 30%; /* Flex-basis is essentially width. */
+}
+
+.call-out:nth-child(1) {background-color: #c0dbe2;}
+.call-out:nth-child(2) {background-color: #cdf1c3;}
+.call-out:nth-child(3) {background-color: #ccb9da;}
+
+
+/* Flexbox Gallery */
+
+.fixed-size-container {
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    background-color: #FFF;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Wraps contents when screen reduces in size. */
+}
+
+.fixed-size {
+    width: 150px;
+    height: 100px;
+    background-color: #990b47;
+    color: #FFF;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+
+
+.banner {
+  height: 400px;
+  max-width: 700px;
+  margin: 40px auto 40px auto;
+  background-color: rgb(223,105,78);
+  display: flex;
+  position: relative;
+}
+
+.banner:after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 100px;
+    box-shadow: 0 2px 60px rgba(0,0,0,.60);
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    z-index: -1;
+}
+
+.center-me {
+  color: #FFF;
+  font-size: 50px;
+  margin: auto;
+}
+
+
+.equal-height-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.first {
+  background-color: #FFF;
+  padding: 20px;
+  flex: 1;
+}
+
+/* This is a Flexbox inside of another Flexbox. */
+.second {
+  background-color: yellow;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.second-a {
+  background-color: #c0dbe2;
+  flex: 1;
+}
+
+.second-b {
+  background-color: #cdf1c3;
+  flex: 1;
 }

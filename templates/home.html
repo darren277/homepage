@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<br/>
+<br/>
+<br/>
+
+    <button onclick="getLocation()">Get Location</button>
+    <div id="demo"></div>
+<!--
+<script>
+var database = firebase.database();
+// write
+database.ref('users/' + userId).set(user);
+
+// read / listen
+database.child("users").on('value', function(snapshot) {
+  // ...
+});
+</script>
+-->
+
+
+    <script>
+    var x = document.getElementById("demo");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
+
+<br/>
+<br/>
+<br/>
+{% endblock %}

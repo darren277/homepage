@@ -1,10 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
-	<meta charset="UTF-8">
-	<title>TITLE</title>
-
+{% block head %}
+{{ super() }}
 <style>
 
 .sticky {
@@ -32,11 +29,10 @@
 }
 
 </style>
+{% endblock %}
 
-</head>
-
-<body>
-
+{% block content %}
+<div id="board">
 <button onclick="newNote()">Add a Note</button>
 
 <button onclick="saveCoordinates()">Save Coordinates</button>
@@ -52,6 +48,7 @@
 
 <button onclick="nokanban()">No Kanban</button>
 <br/>
+</div>
 
 <script>
 var idCounter = 0;
@@ -155,6 +152,7 @@ function newNote() {
 	idCounter++;
 	var noteID = idCounter;
 	var note = document.createElement("div");
+
 	note.setAttribute("id",noteID);
 	note.setAttribute("class","sticky draggable");
 	note.setAttribute('ondblclick','changeColor(event,this)');
@@ -170,8 +168,12 @@ function newNote() {
 
 	console.log("sup");
 
+	// doesn't work because position of note is absolute (for drag and drop)...
+	// document.getElementById("board").appendChild(note);
+
 	var prevNote = document.getElementById(noteID-1);
 	document.body.insertBefore(note,prevNote);
+
 
 	f();
 }
@@ -222,6 +224,4 @@ function nokanban() {
 }
 </script>
 
-</body>
-
-</html>
+{% endblock %}

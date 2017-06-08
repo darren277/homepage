@@ -3,62 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-    <script src="{{url_for('.static', filename='js/jquery.js')}}"></script>
-
-    <link rel="stylesheet" href="{{url_for('.static', filename='css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url_for('.static', filename='css/glyph.css')}}">
-    <script src="{{url_for('.static', filename='js/bootstrap.min.js')}}"></script>
-
-    <link rel="stylesheet" href="{{url_for('.static', filename='css/font-awesome.min.css')}}">
-
 </head>
 <body>
-<!--
-<script>
-var database = firebase.database();
-// write
-database.ref('users/' + userId).set(user);
-
-// read / listen
-database.child("users").on('value', function(snapshot) {
-  // ...
-});
-</script>
--->
-
-    <h1>Home Page</h1>
-
-    <a href="stickynotes">Sticky Notes / Kanban</a>
-    <br/>
-
-    <a href="kanban">Cards</a>
-    <br/>
-
-    <a href="zerotoapp">Zero to App</a>
-    <br/>
-
-    <button onclick="getLocation()">Get Location</button>
-    <div id="demo"></div>
-
-    <script>
-    var x = document.getElementById("demo");
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-    }
-    </script>
-
-<br/>
-<br/>
-<br/>
 
     <h3><span class="glyphicon glyphicon-music"></span>Glyphicons</h3>
     <p>
