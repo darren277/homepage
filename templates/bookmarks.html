@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Add a Bookmark</h3>
+<label>Title</label>
+<input type="text" id="title" />
+<label>URL</label>
+<input type="text" id="url" />
+<button onclick="submit()">Submit</button>
+
+<br/>
+<br/>
+
+<button onclick="view()">View</button>
+
+<br/>
+
+<ul>
+    {% for b in bookmarks %}
+    <li>{{ b.title }}: {{ b.url }}</li>
+    {% endfor %}
+</ul>
+
+<script>
+
+function submit() {
+    var xhttp = new XMLHttpRequest();
+
+    var title = document.getElementById("title").value;
+    var url = document.getElementById("url").value;
+
+    json = {
+        "title": title,
+        "url": url
+        };
+    console.log(json);
+
+    str = JSON.stringify(json);
+
+    xhttp.open("POST", "/bookmarks", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(str);
+};
+
+</script>
+</body>
+</html>

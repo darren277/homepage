@@ -2,6 +2,9 @@
 
 {% block head %}
 {{ super() }}
+
+<script src="{{url_for('.static', filename='js/interact.min.js')}}"></script>
+
 <style>
 
 .sticky {
@@ -11,6 +14,8 @@
 	height: 100px;
 	width: 100px;
 	background-color: lightyellow;
+
+	box-shadow: 0px 1px 15px -10px black;
 }
 .sticky p {
 	text-align: center;
@@ -20,8 +25,8 @@
 	transform: translateY(-50%);
 }
 
-.draggable:hover {
-	/* cursor: move; */
+.drag-and-resize {
+
 }
 
 #kanban {
@@ -53,6 +58,8 @@
 <script>
 var idCounter = 0;
 var colorCounter = 0;
+
+
 
 var f = function() {
 	function Draggable(element,dragStart,dragDrop) {
@@ -106,7 +113,7 @@ var f = function() {
 	}
 };
 
-window.addEventListener('load',f,false);
+// window.addEventListener('load',f,false);
 
 
 function changeColor(event,x) {
@@ -154,7 +161,7 @@ function newNote() {
 	var note = document.createElement("div");
 
 	note.setAttribute("id",noteID);
-	note.setAttribute("class","sticky draggable");
+	note.setAttribute("class","sticky drag-and-resize");
 	note.setAttribute('ondblclick','changeColor(event,this)');
 
 	var par = document.createElement("p");
@@ -175,7 +182,60 @@ function newNote() {
 	document.body.insertBefore(note,prevNote);
 
 
-	f();
+	// f();
+
+    var element = document.getElementsByClassName('drag-and-resize'), x = 0, y = 0;
+
+    interact(element[0])
+        .draggable({
+    snap: {
+      targets: [
+        interact.createSnapGrid({ x: 30, y: 30 })
+      ],
+      range: Infinity,
+      relativePoints: [ { x: 0, y: 0 } ]
+    },
+    inertia: true,
+    restrict: {
+      restriction: element.parentNode,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+      endOnly: true
+    }
+  })
+  .on('dragmove', function (event) {
+    x += event.dx;
+    y += event.dy;
+
+    event.target.style.webkitTransform =
+    event.target.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+  })
+  .resizable({
+    preserveAspectRatio: true,
+    edges: { left: true, right: true, bottom: true, top: true }
+  })
+  .on('resizemove', function (event) {
+    var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0),
+        y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+    // update the element's style
+    target.style.width  = event.rect.width + 'px';
+    target.style.height = event.rect.height + 'px';
+
+    // translate when resizing from top or left edges
+    x += event.deltaRect.left;
+    y += event.deltaRect.top;
+
+    target.style.webkitTransform = target.style.transform =
+        'translate(' + x + 'px,' + y + 'px)';
+
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+    target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
+  });
+
+
 }
 
 function saveCoordinates() {
@@ -222,6 +282,11 @@ function nokanban() {
 	var ctx = c.getContext("2d");
 	ctx.clearRect(0, 0, c.width, c.height);
 }
+
+
+
+
+
 </script>
 
 {% endblock %}

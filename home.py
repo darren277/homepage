@@ -1,7 +1,14 @@
-from flask import Flask
+from flask import Flask, request
 # from flask_sqlalchemy import SQLAlchemy
 
 from flask import render_template
+
+import pyrebase
+from configs.configs import fbaseconfig as fbcfg
+firebase = pyrebase.initialize_app(fbcfg)
+
+db = firebase.database()
+
 
 app = Flask(__name__)
 
@@ -24,6 +31,30 @@ def evergraph():
 @app.route('/css')
 def css():
     return render_template("cssstuff.html")
+
+@app.route('/bookmarks', methods=['GET','POST'])
+def bookmarks():
+    if request.method == 'POST':
+        title = request.json['title']
+        url = request.json['url']
+        db.child("bookmarks").child(title)
+        data = {"url": url}
+        db.child("bookmarks").push(data)
+    b = db.child("bookmarks").get()
+    bookmarks = b.val()
+    print(bookmarks)
+
+    bmarkslist = []
+
+    for v in bookmarks:
+        x = next(iter(bookmarks[v]['users']))
+        bmarks = {
+            "title": v,
+            "url": bookmarks[v]['users'][x]['url']
+                  }
+        bmarkslist.append(bmarks)
+
+    return render_template("bookmarks.html", bookmarks=bmarkslist)
 
 if __name__ == "__main__":
     app.run()
